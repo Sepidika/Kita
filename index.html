@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Adek, Rumah Hati Kita</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Pengaturan Dasar */
+        :root {
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --text-color-dark: #333;
+            --text-color-light: #fff;
+            --accent-color: #d1307b;
+        }
+
+        body {
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+            line-height: 1.7;
+            color: var(--text-color-dark);
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        /* Animasi Latar Belakang */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Lapisan Pembuka */
+        #enter-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            cursor: pointer;
+            transition: opacity 1.5s ease;
+            flex-direction: column;
+        }
+
+        .enter-prompt {
+            text-align: center;
+            color: var(--text-color-light);
+        }
+
+        .enter-prompt > p {
+            font-family: var(--font-heading);
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .enter-prompt > span {
+            font-style: italic;
+            color: #ddd;
+            animation: pulse 2s infinite;
+        }
+
+        /* Kontainer Utama */
+        .container {
+            max-width: 700px;
+            width: 100%;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 1.5s ease 0.5s;
+        }
+
+        /* Kartu Kaca (Glassmorphism Effect) */
+        .section {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 30px 40px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Styling Teks */
+        .intro-quote {
+            font-style: italic;
+            text-align: center;
+            font-size: 1.1em;
+            margin: 0;
+            color: var(--text-color-dark);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            color: var(--text-color-dark);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .main-request {
+            border-left: 3px solid var(--accent-color);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-size: 1.2em;
+            font-style: italic;
+            font-weight: 600;
+            color: #111;
+        }
+
+        footer.section {
+            background: none;
+            border: none;
+            backdrop-filter: none;
+            box-shadow: none;
+            text-align: center;
+            color: var(--text-color-light);
+            text-shadow: 0 1px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Animasi */
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            body { padding: 30px 10px; }
+            .section { padding: 25px; }
+            .section-title { font-size: 1.8em; }
+            .main-request { font-size: 1.1em; }
+        }
+    </style>
+    </head>
+<body>
+
+    <div id="enter-overlay">
+        <div class="enter-prompt">
+            <p>Sebuah Pesan dari Kakak</p>
+            <span>[ Sentuh di mana saja untuk memulai ]</span>
+        </div>
+    </div>
+
+    <audio id="background-music" loop src="assets/musik.mp3"></audio>
+
+    <div class="container">
+        <header class="section">
+            <p class="intro-quote">
+                Kakak sering melihat ke luar jendela, Dek.<br>
+                Bukan menunggu siapa-siapa, hanya memastikan arah pulangmu tidak pernah berubah.<br>
+                Karena rumahmu... adalah di sini, bersama kakak.
+            </p>
+        </header>
+
+        <main>
+            <section class="section">
+                <h2 class="section-title">Ingatkah Adek pada Awal Kisah Kita?</h2>
+                <p>Dek, tiba-tiba kakak kangen. Kangen sekali pada awal kisah kita. Waktu dunia adek seakan hanya ada untuk kakak. Saat notifikasi dari kakak adalah yang paling adek tunggu, dan cerita kakak adalah yang paling ingin adek dengar.</p>
+                <p>Saat itu, kakak merasa jadi orang paling beruntung. Punya 'adek' yang perhatiannya begitu utuh, yang hatinya terasa begitu penuh hanya dengan kakak.</p>
+                <p>Kakak tidak menuntut adek untuk sama persis seperti dulu. Kakak hanya merindukan <em>perasaan</em> itu. Perasaan spesial menjadi satu-satunya 'kakak' di dunia adek, yang tak tergantikan oleh siapa pun.</p>
+            </section>
+            <section class="section">
+                <h2 class="section-title">Sebelum Kakak Meminta, Kakak Ingin Mengaku</h2>
+                <p>Dek, sebelum kakak melanjutkan semua ini, ada satu hal yang harus kakak katakan. Kakak tahu, kakak tidak sempurna. Kakak tahu, dulu kakak pernah menyakiti adek. Ada kata dan sikap kakak di masa lalu yang meninggalkan luka, dan sampai hari ini, penyesalan itu masih sering datang menghantui.</p>
+                <p>Maafkan kakak, ya.</p>
+                <p>Maaf jika dulu kakak pernah membuatmu ragu. Maaf untuk setiap air mata yang jatuh karenaku. Tidak ada pembenaran apa pun untuk itu. Itu adalah kesalahan kakak, dan kakak akan selalu membawanya sebagai pengingat untuk tidak pernah mengulanginya lagi.</p>
+                <p>Justru karena kakak tahu betapa sakitnya saat hubungan kita terluka, makanya sekarang kakak menjadi lebih takut saat merasakan ada sesuatu yang berbeda di antara kita.</p>
+            </section>
+            <section class="section">
+                <h2 class="section-title">Ada Angin yang Berbeda, Dek</h2>
+                <p>Kakak tahu dunia kuliah itu baru dan luas untuk adek. Adek bertemu banyak teman dan punya banyak cerita baru. Kakak ikut senang melihat adek menikmati duniamu.</p>
+                <p>Tapi, Kakak tidak bisa bohong. Belakangan ini, Kakak merasa pintu di rumah hati kita, di sisi adek, sedikit terbuka. Kakak yang di dalam sini, jadi merasa sedikit kedinginan. Perhatian adek yang dulu 100% utuh untuk kakak, kini Kakak merasa harus bersaing untuk mendapatkannya.</p>
+                <p>Jarak fisik ini sudah cukup berat, Dek. Tapi yang lebih berat adalah ketika Kakak mulai merasa ada jarak baru yang tumbuh di antara hati kita.</p>
+            </section>
+            <section class="section">
+                <h2 class="section-title">Sebuah Permintaan, Bukan Larangan</h2>
+                <p>Adek boleh punya teman sebanyak apa pun. Adek boleh punya dunia seluas mungkin. Kakak akan selalu mendukungmu.</p>
+                <p>Kakak hanya punya satu permohonan tulus:</p>
+                <blockquote class="main-request">
+                    Tolong, Dek, jangan biarkan siapa pun menempati ruang yang seharusnya menjadi milik Kakak. Ruang terhangat dan paling istimewa di hati adek.
+                </blockquote>
+                <p>Kakak ingin kembali menjadi fokus utama di hati adek, seperti adek yang selalu menjadi pusat dunia kakak. Kakak tidak ingin merasa harus berlomba untuk mendapatkan perhatianmu. Kakak hanya ingin kembali menjadi tempatmu pulang yang paling nyaman.</p>
+            </section>
+            <section class="section">
+                <h2 class="section-title">Maukah Adek Menjaga Rumah Kita?</h2>
+                <p>Kakak akan selalu menjaga sisi rumah kita di sini. Menjaganya tetap hangat dan penuh cinta, menunggumu pulang.</p>
+                <p>Sekarang, Kakak mengulurkan tangan lewat tulisan ini, berharap adek mau melakukan hal yang sama. Maukah adek, sekali lagi, menutup rapat pintu di sisimu itu? Meyakinkan Kakak bahwa di dalam rumah hati kita, selamanya hanya akan ada kita berdua.</p>
+            </section>
+        </main>
+        
+        <footer class="section">
+            <p>Dari 'kakak'-mu, yang selalu di sini menunggumu.</p>
+            <p><strong>(Namamu)</strong></p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Ambil elemen-elemen yang dibutuhkan
+            const enterOverlay = document.getElementById('enter-overlay');
+            const mainContainer = document.querySelector('.container');
+            const backgroundMusic = document.getElementById('background-music');
+
+            // --- LOGIKA MUSIK OTOMATIS SAAT INTERAKSI PERTAMA ---
+
+            // Fungsi untuk mencoba memutar musik
+            async function playAudio() {
+                try {
+                    // Langsung coba putar musiknya
+                    await backgroundMusic.play();
+                } catch (err) {
+                    // Menangani jika browser tetap memblokir (untuk keamanan)
+                    console.error("Autoplay diblokir oleh browser:", err);
+                }
+            }
+            
+            // Event listener utama untuk overlay
+            enterOverlay.addEventListener('click', () => {
+                // Ini adalah interaksi pengguna pertama yang disengaja.
+                // Langsung panggil fungsi `playAudio`.
+                playAudio();
+
+                // Hilangkan overlay setelah interaksi
+                enterOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    enterOverlay.style.display = 'none';
+                }, 1500); // Sesuaikan dengan durasi transisi di CSS
+
+                // Tampilkan konten utama
+                mainContainer.style.visibility = 'visible';
+                mainContainer.style.opacity = '1';
+            }, { once: true }); // Opsi { once: true } membuat event ini hanya berjalan sekali.
+
+
+            // --- LOGIKA ANIMASI SCROLL (TETAP SAMA) ---
+            const sections = document.querySelectorAll('.section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+    </body>
+</html>
